@@ -1,0 +1,519 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ashraket Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Montserrat:wght@600;800;900&display=swap">
+<style>
+/* Layout: cream-and-ink editorial portfolio. Big split-outline name opens the page, then About, Platforms, Work (three project sections with screenshot galleries), Contact. */
+:root {
+  --bg: #FFFCF6;
+  --band: #FFF3DC;
+  --card: #FFFFFF;
+  --ink: #15130F;
+  --muted: #5F584B;
+  --line: #E7DCC4;
+  --accent: #C9701A;
+  --accent-ink: #FFFFFF;
+  --font-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --gutter: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
+  --gutter-r: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14120F; --band: #1C1913; --card: #1F1B15; --ink: #F7EFDE; --muted: #B5AA92;
+    --line: #34301F; --accent: #F0A24C; --accent-ink: #14120F; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14120F; --band: #1C1913; --card: #1F1B15; --ink: #F7EFDE; --muted: #B5AA92;
+  --line: #34301F; --accent: #F0A24C; --accent-ink: #14120F; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--bg);
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.in {
+  width: 100%; max-width: 1240px; margin-inline: auto;
+  padding-left: var(--gutter); padding-right: var(--gutter-r);
+}
+.band { background: var(--band); }
+section { padding-block: clamp(56px, 9vw, 112px); }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.05; }
+h2 { font-weight: 900; font-size: clamp(2rem, 5.4vw, 3.6rem); letter-spacing: -0.01em; text-transform: uppercase; }
+h3 { font-weight: 800; font-size: clamp(1.35rem, 2.6vw, 1.75rem); text-transform: uppercase; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--font-mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500;
+}
+.lede { font-size: clamp(1.05rem, 1.7vw, 1.25rem); max-width: 60ch; }
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.top .in { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+.brand { font-family: var(--font-display); font-weight: 900; letter-spacing: .04em; text-decoration: none; }
+.nav { display: flex; align-items: center; gap: clamp(14px, 3vw, 32px); }
+.nav a { text-decoration: none; font-size: .92rem; font-weight: 500; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.nav .cta {
+  color: var(--accent-ink); background: var(--accent); padding: 8px 16px; border-radius: 999px; font-weight: 600;
+}
+.nav .cta:hover { color: var(--accent-ink); filter: brightness(1.06); }
+@media (max-width: 640px) { .nav a:not(.cta) { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(48px, 8vw, 96px) clamp(48px, 7vw, 80px); background: var(--band); }
+.hero h1 {
+  font-weight: 900; font-size: clamp(2.6rem, 12.4vw, 9.5rem); letter-spacing: -0.02em; line-height: .95;
+  margin-top: 18px; text-transform: uppercase; white-space: nowrap;
+}
+.hero h1 .o { color: transparent; -webkit-text-stroke: clamp(1.5px, .25vw, 3px) var(--ink); }
+.role {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(1.1rem, 2.6vw, 1.7rem); margin-top: 14px; letter-spacing: .02em;
+}
+.hero .lede { margin-top: 18px; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: .95rem;
+  padding: 12px 22px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  font-family: var(--font-body); cursor: pointer;
+}
+.btn.solid { background: var(--ink); color: var(--bg); }
+.btn:hover { filter: brightness(1.15); }
+
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0;
+  margin-top: clamp(40px, 6vw, 72px); border-top: 2px solid var(--ink);
+}
+.stat { padding: 20px 20px 4px 0; }
+.stat b {
+  display: block; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 4.4vw, 3rem);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+.stat span { display: block; margin-top: 8px; font-size: .9rem; color: var(--muted); max-width: 26ch; }
+
+/* about */
+.about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 80px); margin-top: 40px; }
+.about-grid p + p { margin-top: 16px; }
+.timeline { display: grid; gap: 0; margin-top: 28px; border-left: 2px solid var(--ink); }
+.tl { padding: 0 0 22px 20px; position: relative; }
+.tl::before {
+  content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--ink);
+}
+.tl b { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+.tl p { margin-top: 2px; }
+.steps { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li {
+  counter-increment: s; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 8px; align-items: baseline;
+  padding: 16px 0; border-top: 1px solid var(--line);
+}
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps li::before {
+  content: counter(s); font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; color: var(--accent);
+}
+
+/* platforms + tools */
+.pl-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); margin-top: 40px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.chips li {
+  padding: 10px 18px; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; background: var(--card);
+}
+.chips.soft li { border-color: var(--line); border-width: 1px; font-weight: 500; }
+.pl-grid p.sub { color: var(--muted); margin-top: 6px; }
+
+/* projects */
+.project { border-top: 2px solid var(--ink); padding-top: 28px; }
+.project + .project { margin-top: clamp(64px, 9vw, 112px); }
+.proj-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px clamp(24px, 5vw, 64px); align-items: end; }
+.proj-head p { color: var(--muted); max-width: 52ch; }
+.proj-head h3 { margin-top: 10px; font-size: clamp(1.8rem, 4.2vw, 3rem); font-weight: 900; }
+.figs {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 28px; margin-top: 28px;
+}
+.fig b {
+  display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.fig span { display: block; margin-top: 4px; font-size: .88rem; color: var(--muted); }
+
+.plat {
+  display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px clamp(24px, 4vw, 56px);
+  padding-block: 40px; border-top: 1px solid var(--line); margin-top: 40px;
+}
+.plat:first-of-type { margin-top: 32px; }
+.plat h4 {
+  margin: 8px 0 0; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-transform: uppercase;
+}
+.plat .figs { grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+.plat .note { margin-top: 18px; font-size: .88rem; color: var(--muted); }
+
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; align-content: start; }
+.shots .span { grid-column: 1 / -1; }
+.phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 32px; align-items: start; }
+.phones.four { margin-top: 0; }
+.shot { margin: 0; }
+.shot img {
+  width: 100%; border-radius: 12px; border: 1px solid var(--line); background: var(--card);
+  box-shadow: 0 1px 2px rgba(20, 15, 5, .06), 0 10px 28px -14px rgba(20, 15, 5, .28);
+  cursor: zoom-in; transition: transform .2s ease;
+}
+.phones .shot img { border-radius: 18px; }
+.shot img:hover { transform: translateY(-3px); }
+.shot figcaption { margin-top: 8px; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } html { scroll-behavior: auto; } }
+
+.foot-note { margin-top: 48px; font-size: .85rem; color: var(--muted); max-width: 70ch; }
+
+/* contact */
+.contact { background: var(--ink); color: var(--bg); }
+.contact h2 { color: var(--bg); }
+.contact .eyebrow { color: var(--bg); opacity: .7; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+.cards { display: grid; gap: 14px; }
+.cc {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px;
+  border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent); border-radius: 14px; padding: 16px 18px;
+}
+.cc .lab { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; width: 100%; }
+.cc .val { font-family: var(--font-mono); font-size: clamp(.9rem, 2.4vw, 1.08rem); overflow-wrap: anywhere; min-width: 0; user-select: all; }
+.copy {
+  font-family: var(--font-body); font-weight: 600; font-size: .85rem; cursor: pointer; padding: 8px 16px; border-radius: 999px;
+  border: 1.5px solid var(--bg); background: transparent; color: var(--bg);
+}
+.copy:hover { background: var(--bg); color: var(--ink); }
+.contact .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.contact .btn { border-color: var(--bg); color: var(--bg); }
+.contact .btn.solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+footer { padding-block: 22px; font-size: .82rem; color: var(--muted); }
+
+/* lightbox */
+#lb {
+  position: fixed; inset: 0; z-index: 50; background: rgba(10, 8, 4, .88); display: flex; align-items: center; justify-content: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  cursor: zoom-out;
+}
+#lb img { max-width: 100%; max-height: 100%; width: auto; border-radius: 10px; background: #fff; }
+
+@media (max-width: 860px) {
+  .about-grid, .pl-grid, .proj-head, .plat, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .plat .figs { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+</style>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="#top">ASHRAKET</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#platforms">Platforms</a>
+      <a href="#work">Work</a>
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="in">
+      <p class="eyebrow">Portfolio · Egypt &amp; Saudi Arabia</p>
+      <h1 aria-label="Ashraket"><span class="o">ASH</span>RAKET</h1>
+      <p class="role">Media buyer</p>
+      <p class="lede">I run paid campaigns on Meta, Google, Snapchat, TikTok and X for retail brands in Egypt and Saudi Arabia, and set up the tracking behind them.</p>
+      <div class="hero-actions">
+        <a class="btn solid" href="#work">See the work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>20+</b><span>retail businesses across clothing, food, electronics and home supplies</span></div>
+        <div class="stat"><b>5</b><span>ad platforms: Meta, Google Ads, Snapchat, TikTok, X</span></div>
+        <div class="stat"><b>2</b><span>markets: Egypt and Saudi Arabia</span></div>
+        <div class="stat"><b>20K SAR</b><span>largest budget managed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="in">
+      <p class="eyebrow">About</p>
+      <h2 style="margin-top:10px">About me</h2>
+      <div class="about-grid">
+        <div>
+          <p class="lede">I'm Ashraket, 23, a media buyer. Paid ads are where I ended up after learning every step that comes before them.</p>
+          <div class="timeline">
+            <div class="tl"><b>Age 17 to 19</b><p>Journalism and Business Workshop, studying under Bashkatib.</p></div>
+            <div class="tl"><b>Age 20 to today</b><p>Working in marketing, now focused on paid media.</p></div>
+          </div>
+        </div>
+        <div>
+          <p>I have a wide skill set, built one layer at a time. Each step taught me something I still use when I plan a campaign.</p>
+          <ol class="steps">
+            <li><span>Mediator for communication on brand pages.</span></li>
+            <li><span>Writing content and photography.</span></li>
+            <li><span>Developing ideas and producing them as photos or videos.</span></li>
+            <li><span>Publishing the content on publications and social platforms, then promoting it.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platforms" class="band">
+    <div class="in">
+      <p class="eyebrow">Platforms and tools</p>
+      <h2 style="margin-top:10px">What I work with</h2>
+      <div class="pl-grid">
+        <div>
+          <h3>Platforms I work on</h3>
+          <p class="sub">Campaign setup, optimization and reporting.</p>
+          <ul class="chips">
+            <li>Meta (Facebook &amp; Instagram)</li>
+            <li>Google Ads</li>
+            <li>Snapchat</li>
+            <li>TikTok</li>
+            <li>X</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Basic tools at work</h3>
+          <p class="sub">Measurement and tracking.</p>
+          <ul class="chips soft">
+            <li>Google Tag Manager</li>
+            <li>Google Analytics</li>
+            <li>Yandex Metrica</li>
+            <li>Tracking setup</li>
+            <li>Creating pixels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="in">
+      <p class="eyebrow">Selected work</p>
+      <h2 style="margin-top:10px">Portfolio</h2>
+
+      <!-- Project: Egypt -->
+      <article class="project" style="margin-top:40px">
+        <div class="proj-head">
+          <div>
+            <p class="eyebrow">Egyptian market · Meta</p>
+            <h3>Engagement and messages</h3>
+          </div>
+          <p>Meta campaigns built to get people engaging with posts and starting message conversations, plus Instagram profile-visit and video-view campaigns.</p>
+        </div>
+        <div class="figs">
+          <div class="fig"><b>EGP 146.5K</b><span>total spent in one ad account</span></div>
+          <div class="fig"><b>EGP 0.90</b><span>per message conversation, 1,485 conversations in one campaign</span></div>
+          <div class="fig"><b>EGP 1.69</b><span>per message conversation, 2,754 conversations in another</span></div>
+        </div>
+        <div class="phones">
+          <figure class="shot"><img src="img/eg_a2.jpg" alt="Meta Ads Manager on a phone showing a 146,518.43 EGP total spend and engagement campaigns" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/eg_a3.jpg" alt="Meta Ads Manager campaign list with message conversation costs in EGP" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/eg_a1.jpg" alt="Meta engagement campaigns with cost per message conversation of 0.90 EGP" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/eg_b1.jpg" alt="Meta engagement and ThruPlay campaigns for a second ad account" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/eg_b2.jpg" alt="Meta engagement and Instagram profile-visit traffic campaigns" loading="lazy" data-zoom></figure>
+        </div>
+      </article>
+
+      <!-- Project: Saudi -->
+      <article class="project">
+        <div class="proj-head">
+          <div>
+            <p class="eyebrow">Saudi market · Five platforms</p>
+            <h3>Sales for online stores</h3>
+          </div>
+          <p>Campaigns for online stores across Google Ads, Snapchat, TikTok, X and Meta, optimized for website purchases, traffic and awareness.</p>
+        </div>
+
+        <div class="plat">
+          <div>
+            <p class="eyebrow">Search</p>
+            <h4>Google Ads</h4>
+            <div class="figs">
+              <div class="fig"><b>13.6K</b><span>clicks, Q2 2022 to Q3 2024</span></div>
+              <div class="fig"><b>1.89M</b><span>impressions</span></div>
+              <div class="fig"><b>0.65 SAR</b><span>average CPC</span></div>
+            </div>
+          </div>
+          <div class="shots">
+            <figure class="shot span"><img src="img/ga_big.jpg" alt="Google Ads performance chart with 13.6K clicks, 1.89M impressions and 0.65 riyal average CPC" loading="lazy" data-zoom></figure>
+            <figure class="shot span"><img src="img/ga_top.jpg" alt="Google Ads summary with 2.3K clicks, 109K impressions and conversion value" loading="lazy" data-zoom></figure>
+          </div>
+        </div>
+
+        <div class="plat">
+          <div>
+            <p class="eyebrow">Social</p>
+            <h4>Snapchat</h4>
+            <div class="figs">
+              <div class="fig"><b>64</b><span>purchases at US$9.30 each in one website-conversion campaign</span></div>
+              <div class="fig"><b>10.56</b><span>purchase ROAS, 39 purchases on US$412.82, July 1 to 21, 2024</span></div>
+              <div class="fig"><b>752,977</b><span>paid impressions for US$1,394.80 across campaigns</span></div>
+            </div>
+          </div>
+          <div class="shots">
+            <figure class="shot"><img src="img/sc_1.jpg" alt="Snapchat Ads Manager showing 39 purchases and a purchase ROAS of 10.56" loading="lazy" data-zoom></figure>
+            <figure class="shot"><img src="img/sc_2.jpg" alt="Snapchat purchase ROAS of 14.37 for July 15 to 21, 2024" loading="lazy" data-zoom></figure>
+            <figure class="shot span"><img src="img/sc_3.jpg" alt="Snapchat campaign table with conversions, awareness and traffic campaigns" loading="lazy" data-zoom></figure>
+          </div>
+        </div>
+
+        <div class="plat">
+          <div>
+            <p class="eyebrow">Social</p>
+            <h4>TikTok</h4>
+            <div class="figs">
+              <div class="fig"><b>180</b><span>purchases across 16 campaigns, July 1 to 21, 2024</span></div>
+              <div class="fig"><b>12.44</b><span>complete payment ROAS</span></div>
+              <div class="fig"><b>1.14M</b><span>impressions at a 3.54% CTR</span></div>
+            </div>
+          </div>
+          <div class="shots">
+            <figure class="shot span"><img src="img/tt_2.jpg" alt="TikTok Ads Manager campaign table with 180 conversions and a complete payment ROAS of 12.44" loading="lazy" data-zoom></figure>
+            <figure class="shot span"><img src="img/tt_1.jpg" alt="TikTok ad group with 41 purchases and a 3.77% CTR" loading="lazy" data-zoom></figure>
+          </div>
+        </div>
+
+        <div class="plat">
+          <div>
+            <p class="eyebrow">Social</p>
+            <h4>X</h4>
+            <div class="figs">
+              <div class="fig"><b>136,757</b><span>impressions on a $358.23 spend, July 2024</span></div>
+            </div>
+          </div>
+          <div class="shots">
+            <figure class="shot span"><img src="img/x_1.jpg" alt="X Ads chart showing 136,757 impressions and $358.23 spend" loading="lazy" data-zoom></figure>
+          </div>
+        </div>
+
+        <div class="plat">
+          <div>
+            <p class="eyebrow">Social</p>
+            <h4>Meta</h4>
+            <div class="figs">
+              <div class="fig"><b>SAR 143.7K</b><span>total spent in one ad account, with sales, visit and conversion campaigns</span></div>
+            </div>
+          </div>
+          <div class="phones four">
+            <figure class="shot"><img src="img/ksa_4.jpg" alt="Meta Ads Manager showing a total spend of 143,699.61 riyals" loading="lazy" data-zoom></figure>
+            <figure class="shot"><img src="img/ksa_3.jpg" alt="Meta campaigns for sales and link visits in Saudi riyals" loading="lazy" data-zoom></figure>
+            <figure class="shot"><img src="img/ksa_2.jpg" alt="Active Meta sales campaigns with cost per purchase" loading="lazy" data-zoom></figure>
+            <figure class="shot"><img src="img/ksa_1.jpg" alt="Meta KSA conversions campaigns for July 2024" loading="lazy" data-zoom></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project: stores -->
+      <article class="project">
+        <div class="proj-head">
+          <div>
+            <p class="eyebrow">Saudi market · Salla and Zid</p>
+            <h3>Store dashboards</h3>
+          </div>
+          <p>Dashboards from Salla and Zid, the platforms behind the online stores, read next to ad results to follow orders, visits and sales.</p>
+        </div>
+        <div class="figs">
+          <div class="fig"><b>905</b><span>orders in May 2024 from 13,221 visits</span></div>
+          <div class="fig"><b>150,465</b><span>sales in the May 2024 summary</span></div>
+          <div class="fig"><b>283</b><span>orders from 32,293 visits in a later monthly view</span></div>
+        </div>
+        <div class="shots" style="margin-top:32px">
+          <figure class="shot span"><img src="img/sz_2.jpg" alt="Salla monthly summary for May 2024 with sales, visits and orders" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/sz_1.jpg" alt="Zid store summary with sales, orders and visits" loading="lazy" data-zoom></figure>
+          <figure class="shot"><img src="img/sz_3.jpg" alt="Store sales report with orders chart and net sales" loading="lazy" data-zoom></figure>
+        </div>
+      </article>
+
+      <p class="foot-note">Figures come from the ad-platform and store screenshots shown, mostly for reporting periods between 2022 and 2024. Tap any screenshot to enlarge it.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="in">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 style="margin-top:10px">Let's talk about your campaigns</h2>
+          <div class="links">
+            <a class="btn solid" href="mailto:ashraketqlmelmansoura@gmail.com">Send an email</a>
+            <a class="btn" href="https://wa.me/201061843379" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="cc">
+            <span class="lab">Phone</span>
+            <span class="val" id="v-phone">01061843379</span>
+            <button class="copy" type="button" data-copy="v-phone">Copy</button>
+          </div>
+          <div class="cc">
+            <span class="lab">Email</span>
+            <span class="val" id="v-mail">ashraketqlmelmansoura@gmail.com</span>
+            <button class="copy" type="button" data-copy="v-mail">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">Ashraket · Media buyer · Portfolio 2026</div>
+</footer>
+
+<div id="lb" hidden role="dialog" aria-label="Enlarged screenshot"><img id="lbimg" alt=""></div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var lbimg = document.getElementById('lbimg');
+  function close() { lb.hidden = true; lbimg.removeAttribute('src'); }
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest && e.target.closest('img[data-zoom]');
+    if (img) { lbimg.src = img.currentSrc || img.src; lbimg.alt = img.alt; lb.hidden = false; return; }
+    if (!lb.hidden) close();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+
+  document.querySelectorAll('button[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var text = el.textContent.trim();
+      function done() { var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = old; }, 1600); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      }
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (err) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>
